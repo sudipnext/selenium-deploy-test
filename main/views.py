@@ -18,9 +18,7 @@ def scrap(request):
     options.headless = True
     options.add_argument("--disable-dev-shm-usage")
 
-
-    driver = webdriver.Chrome(Service(ChromeDriverManager().install()), options=options)
-
+    driver = webdriver.Chrome(options=options)
     url = "https://www.tiktok.com/@khaby.lame/"
 
     driver.get(url)
