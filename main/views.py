@@ -11,14 +11,16 @@ from selenium.webdriver.support.ui import Select
 from django.contrib import messages
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 
 def scrap(request):
     options = Options()
     options.headless = True
     options.add_argument("--disable-dev-shm-usage")
-    options.binary_location = "/opt/render/project/"
-    driver = webdriver.Chrome(chrome_options=options)
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
     # driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=options)
     url = "https://www.tiktok.com/@khaby.lame/"
 
