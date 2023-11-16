@@ -20,7 +20,7 @@ def scrap(request):
     options.headless = True
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--ignore-ssl-errors=yes')
-    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--remote-debugging-pipe')              
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     # driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=options)
