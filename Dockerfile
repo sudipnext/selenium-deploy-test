@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y wget unzip && \
 COPY requirements.txt /app/
 RUN pip3 install -r requirements.txt
 RUN pip3 install gunicorn
-RUN python manage.py collectstatic --noinput
 
 # Copy your Django application code to the container
 COPY . /app/
