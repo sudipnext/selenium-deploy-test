@@ -18,7 +18,9 @@ from selenium.webdriver.chrome.service import Service
 def scrap(request):
     options = Options()
     options.headless = True
-    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--ignore-ssl-errors=yes')
+    options.add_argument('--ignore-certificate-errors')
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     # driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,options=options)
